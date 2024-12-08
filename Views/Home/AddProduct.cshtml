@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Product Submission</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #eaeaea; /* Light grey background for the whole page */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            background-color: #bdc3c7; /* Grey background for the form */
+            border-radius: 12px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 20px 0; /* Space between fields */
+            border: 2px solid #bdc3c7;
+            border-radius: 50px; /* Circular textboxes */
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+            input[type="text"]:focus, input[type="number"]:focus {
+                border-color: #2980b9;
+                outline: none;
+            }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 50px; /* Circular button */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            button:hover {
+                background-color: #3498db;
+            }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .update-btn {
+            background-color: #27ae60;
+        }
+
+            .update-btn:hover {
+                background-color: #2ecc71;
+            }
+
+        .delete-btn {
+            background-color: #e74c3c;
+        }
+
+            .delete-btn:hover {
+                background-color: #c0392b;
+            }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>Product Information</h1>
+        <form action="/Home/Submit" method="post">
+            <label for="ProductName">Product Name:</label>
+            <input type="text" name="ProductName" id="ProductName" required />
+
+            <label for="CategoryID">Category ID:</label>
+            <input type="number" name="CategoryID" id="CategoryID" required />
+
+            <label for="CategoryName">Category Name:</label>
+            <input type="text" name="CategoryName" id="CategoryName" required />
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+﻿@model IEnumerable<CompanyTask.Models.Product>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <style>
+        /* Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* Back Button Styling */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+            .back-btn:hover {
+                background-color: #0056b3;
+                transform: scale(1.05);
+            }
+
+        /* Table Styling */
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #eaeaea;
+        }
+
+        /* No Data Found Styling */
+        .no-data {
+            text-align: center;
+            color: #e74c3c;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="@Url.Action("CrudeOption", "Home")" class="back-btn">Back</a>
+
+    <h1>Product List</h1>
+
+    @if (Model == null || !Model.Any())
+    {
+        <p class="no-data">No products found.</p>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Category ID</th>
+                    <th>Category Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var v1 in Model.Select((value, index) => new { value, index }))
+                {
+                    <tr>
+                        <td>@(v1.index + 1)</td>
+                        <td>@v1.value.ProductId</td>
+                        <td>@v1.value.ProductName</td>
+                        <td>@v1.value.CategoryID</td>
+                        <td>@v1.value.CategoryName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</body>
+</html>
